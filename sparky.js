@@ -5772,18 +5772,17 @@ break
 case 'tqto': 
 throw `Thanks to
 ┏═┅〔 *SUPPORT* 〕┅═
-┃⫹⫺ 𝚇𝚎𝚘𝚗
-┃⫹⫺ Aswin Sparky
-┃⫹⫺ Andi_mr_lit
-┗═┅〔 *Made By Sparky* 〕┅═`
+┃⫹⫺ zeroTwo
+┃⫹⫺ Ahmii
+┃⫹⫺ 02
+┗═┅〔 *Made By Whatsapp* 〕┅═`
 break
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
-            let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed();
             let latensie = speed() - timestampe
             let jarot = `┏─────────────────⬣
-┆ 𝑯𝒂𝒊, ${ucapanWaktu} ${pushname}
+┆ 𝑯𝒊, ${ucapanWaktu} ${pushname}
 ┗┬──────────────┈ ⳹
 ┏┤ Bot Info
 ┆┗──────────────┈ ⳹
