@@ -2434,14 +2434,17 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'ytmp4': case 'ytvideo': {
-                let { ytv } = require('./lib/y2mate')
-                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
-                let quality = args[1] ? args[1] : '360p'
-                let media = await ytv(text, quality)
-                if (media.filesize >= 100000) return m.reply('File Over Limit '+util.format(media))
-                XeonBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `⫹⫺ Title : ${media.title}\n⫹⫺ File Size : ${media.filesizeF}\n⫹⫺ Url : ${isUrl(text)}\n⫹⫺ Ext : MP3\n⫹⫺ Resolution : ${args[1] || '360p'}` }, { quoted: m })
-            }
-            break
+                const YT=require('./lib/y2mate')
+    let yts = require("yt-search")
+    let search = await yts(text)
+    let anu = search.videos[0]
+    const ytmp4play = await YT.mp4(anu.url)
+    let vidduration =ytmp4play.duration;
+    if (vidduration > 1800) return reply('Cant send videos longer than *30 min*')
+ XeonBotInc.sendMessage(from, {video:{url:ytmp4play.videoUrl}, mimetype:"video/mp4", caption:anu.title+' By *Miku MD*',}, {quoted:m})
+ }
+ break
+
             case 'pinterest': {
                 m.reply(mess.wait)
 		let { pinterest } = require('./lib/scraper')
